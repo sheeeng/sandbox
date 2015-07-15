@@ -59,12 +59,19 @@ func SntpNow(host string) (*time.Time, error) {
 	nsec := sec * 1e9
 	nsec += (frac * 1e9) >> 32
 
-	t := time.Date(1900, 1, 1, 0, 0, 0, 0, time.UTC).Add(time.Duration(nsec)).Local()
+	obtainedNtpTime := time.Date(1900, 1, 1, 0, 0, 0, 0, time.UTC).Add(time.Duration(nsec)).Local()
+
+	if obtainedNtpTime.Year() > 2014 {
+		fmt.Println("After 2014.")	
+	} else {
+		fmt.Println("2014 or earlier.")
+	}
+	 
 
 	fmt.Printf("[% x]\n", data)
 	fmt.Printf("%d\n", len(data))
 
-	return &t, nil
+	return &obtainedNtpTime, nil
 }
 
 func main() {
@@ -87,10 +94,10 @@ func main() {
 	usrShaHex := usrSha.Sum(nil)
 	fmt.Printf("%x\n", usrShaHex)
 
-	salt := `☆*･゜ﾟ･*\(^O^)/*･゜ﾟ･*☆`
+	emoji := `☆*･゜ﾟ･*\(^O^)/*･゜ﾟ･*☆`
 
 	usrSha = sha256.New()
-	usrSha.Write([]byte(usr.Uid + salt))
+	usrSha.Write([]byte(usr.Uid + emoji))
 	usrShaHex = usrSha.Sum(nil)
 	fmt.Printf("%x\n", usrShaHex)
 
