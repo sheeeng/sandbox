@@ -14,7 +14,18 @@ import (
 	// "reflect"
 	// "strconv"
 	// "math"
+	"unicode"
 )
+
+// checks if s is ascii and printable, aka doesn't include tab, backspace, etc.
+func IsAsciiPrintable(s string) bool {
+	for _, r := range s {
+		if r > unicode.MaxASCII || !unicode.IsPrint(r) {
+			return false
+		}
+	}
+	return true
+}
 
 func DecodeKey(rpk []byte) {
 	fmt.Printf("DigitalProductId [% x] Length: %d\n", rpk, len(rpk))
@@ -55,6 +66,27 @@ func DecodeKey(rpk []byte) {
 		j := 14
 		for j >= 0 {
 			dwAccumulator = dwAccumulator * 256
+
+			// d := rpk[j+rpkOffset]
+			// fmt.Printf("%d %T\n\n", d, d) //prints uint8
+
+			istr := string(rpk[j+rpkOffset])
+			fmt.Printf("%s %T\n\n", istr, istr) //prints uint8
+			// ival := int(rpk[j+rpkOffset])
+			// fmt.Printf("%d %T\n\n", ival, ival) //prints uint8
+			fmt.Printf("len([]rune(s)) = %d, len([]byte(s)) = %d\n", len([]rune(istr)), len([]byte(istr)))
+
+			// d := string(rpk[j+rpkOffset])
+
+			// if isinstance(d, str):
+			//     d = ord(d)
+
+			//Failed attempt.
+
+			// if len([]byte(istr)) == 1 {
+			// 	di := int(rpk[j+rpkOffset])
+			// }
+
 			//log.Println(rpk[j+rpkOffset])
 			//log.Printf("[% x]\n", rpk[j+rpkOffset])
 
@@ -82,6 +114,8 @@ func DecodeKey(rpk []byte) {
 	}
 	fmt.Println()
 	log.Println(szProductKey)
+
+	fmt.Println(IsAsciiPrintable(szProductKey), IsAsciiPrintable("test"))
 
 }
 
