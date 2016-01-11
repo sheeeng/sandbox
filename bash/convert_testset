@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 7.99
+Microsoft Visual Studio Solution File, Format Version 8.00
+Microsoft Visual Studio Solution File, Format Version 9.00
+Microsoft Visual Studio Solution File, Format Version 10.00
+Microsoft Visual Studio Solution File, Format Version 11.00
+Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 13.00
+
+# Visual Studio 2014
+# Visual Studio 14
+# Visual Studio 2013
+# Visual Studio 2012
+# Visual Studio 2011
+# Visual Studio 2010
+# Visual Studio 2009
+
+VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 11.0.61219.00
+VisualStudioVersion = 10.0.40219.1
+
+<Project DefaultTargets="Build" ToolsVersion="10.0"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="11.0"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="13.0"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0"
+xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<PlatformToolset>v100</PlatformToolset>
+<PlatformToolset>v120</PlatformToolset>
+<PlatformToolset>v130</PlatformToolset>
+<PlatformToolset>v130</PlatformToolset>
+<PlatformToolset>v141</PlatformToolset>
+<PlatformToolset>v124</PlatformToolset>
+<PlatformToolset>v140</PlatformToolset>
+<PlatformToolset>v150</PlatformToolset>
+<PlatformToolset>v220</PlatformToolset>
+
